@@ -1,0 +1,90 @@
+@CHARSET "ISO-8859-1";
+
+#menu ul {
+	list-style: none;
+}
+
+#menu ul li {
+	display: inline;
+}
+
+#menu ul li a {
+	margin: 10;
+	padding: 10px 10px;
+	background-color: #EDEDED;
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	border-bottom: 2px solid #EDEDED;
+}
+
+#menu ul li a:hover {
+	background-color: #D6D6D6;
+	color: #D2691E;
+	/* border-bottom: 5px solid #EA0000; */
+	border: inset;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.fleft {
+	float: left;
+}
+
+.fright {
+	float: right;
+}
+
+* {
+	/*Define  que todos os elementos da página, ficarão em negrito e com a fonte arial */
+	font-weight: bold;
+	font-family: arial;
+	background: aqua;
+	/*Define a tamanho da fonte para todos os elementos */
+	font-size: 12px;
+	margin: 1px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.errors {
+	font-style: italic;
+	color: red;
+}
+
+.emphasis {
+	font-size: 1.3em;
+}
+
+.edit {
+	/*Define a borda do elemento, com um efeito de baixo-relevo menor que o padrão */
+	border: 1px inset;
+	/*Especifica a cor cinza, como pano de fundo do elemento */
+	background-color: #D3D3D3;
+	/*Especifica como preta a  cor da fonte do elemento */
+	color: #000000;
+}
+
+.botoes {
+	/*Especifica a cor chocolate, como pano de fundo do elemento */
+	background-color: #D2691E;
+	/*Especifica como preta a cor da fonte do elemento */
+	color: #FFFFFF;
+	/*Define a borda do elemento, com um efeito de alto-relevo menor que o padrão */
+	border: 1px outset;
+}
+
+.rotulos {
+	/*Especifica preta a cor da fonte do elemento */
+	color: #000000;
+	background-color: lime;
+}
+
+legend {
+	/*Define a tamanho da fonte para a legenda do FieldSet */
+	font-size: 12px
+}

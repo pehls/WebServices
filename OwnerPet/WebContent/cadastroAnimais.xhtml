@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link rel="StyleSheet" href="comum.css" type="text/css" media="screen" />
+	<f:loadBundle basename="util.messages" var="msgs" />
+</h:head>
+<h:body>
+	<h:form>
+		<fieldset>
+			<legend>
+				<h:outputText value="#{msgs.topo}" styleClass="emphasis" />
+			</legend>
+			<h:panelGrid id="dados" columns="2">
+
+
+				<h:outputText id="racalabel" value="#{msgs.labelraca}" />
+				<h:inputText id="raca" label="#{msgs.labelraca}"
+					value="#{animalMB.animal.raca}" maxlength="90" required="true"
+					styleClass="edit" />
+
+				<h:outputText id="registrolabel" value="#{msgs.labelregistro}" />
+				<h:inputText id="registro" label="#{msgs.labelregistro}"
+					value="#{animalMB.animal.registro}" size="10" maxlength="5"
+					required="true" styleClass="edit">
+					<f:validator validatorId="registroValidator" />
+				</h:inputText>
+
+				<h:outputText id="familialabel" value="#{msgs.labelfamilia}" />
+				<h:panelGroup id="groupFamilia">
+					<h:selectOneMenu id="familia" value="#{animalMB.animal.familia}"
+						valueChangeListener="#{animalMB.mudaFoto}" styleClass="edit1">
+						<f:selectItem itemLabel="Cãos" itemValue="Caos" />
+						<f:selectItem itemLabel="Gatos" itemValue="Gatos" />
+						<f:selectItem itemLabel="Passaros" itemValue="Passaros" />
+						<f:ajax render="foto" />
+					</h:selectOneMenu>
+					<h:graphicImage id="foto" value="#{animalMB.animal.foto}"
+						width="50" height="60" style="border: 5px" />
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText id="nascimentoLabel"
+						value="#{msgs.labeldataNascimento}" />
+					<h:inputText id="nascimento" label="#{msgs.labeldataNascimento}"
+						value="#{animalMB.animal.dataNascimento}" size="10" maxlength="10"
+						required="true" styleClass="edit">
+						<f:convertDateTime pattern="dd/MM/yyyy"
+							timeZone="America/Sao_Paulo" />
+					</h:inputText>
+				</h:panelGroup>
+
+				<h:panelGroup id="groupMedidas">
+					<h:outputText id="alturalabel" value="#{msgs.labelaltura}" />
+					<h:inputText id="altura" label="#{msgs.labelaltura}"
+						value="#{animalMB.animal.altura}" size="5" maxlength="5"
+						required="true" styleClass="edit" />
+
+					<h:outputText id="comprimentoLabel"
+						value="#{msgs.labelcomprimento}" />
+					<h:inputText id="comprimento" label="#{msgs.labelcomprimento}"
+						value="#{animalMB.animal.comprimento}" size="5" maxlength="5"
+						required="true" styleClass="edit" />
+
+					<h:outputText id="pesolabel" value="#{msgs.labelpeso}" />
+					<h:inputText id="peso" label="#{msgs.labelpeso}"
+						value="#{animalMB.animal.peso}" size="5" maxlength="5"
+						required="true" styleClass="edit" />
+				</h:panelGroup>
+
+
+				<h:panelGroup>
+					<h:outputText id="caudaLabel" value="#{msgs.labelpossuiCauda}" />
+					<h:selectBooleanCheckbox id="ativoCauda"
+						label="#{msgs.labelpossuiCauda}"
+						value="#{animalMB.animal.possuiCauda}" />
+					<h:outputText id="possuiLabel" value="SIM" />
+				</h:panelGroup>
+
+				<h:panelGroup>
+					<h:outputText id="corPelolabel" value="#{msgs.labelcorPelo}" />
+					<h:inputText id="corPelo" label="#{msgs.labelcorPelo}"
+						value="#{animalMB.animal.corPelo}" size="10" maxlength="10"
+						required="true" styleClass="edit" />
+				</h:panelGroup>
+			</h:panelGrid>
+
+			<h:outputText id="descricaolabel" value="#{msgs.labeldescricao}" />
+			<h:inputTextarea id="descricao" label="#{msgs.labeldescricao}"
+				value="#{animalMB.animal.descricao }" rows="5" cols="50"
+				required="true" styleClass="edit" />
+
+
+			<h:panelGroup id="groupBotoes" style="align: center">
+				<h:commandButton id="cadastrar" value="#{msgs.botaoSubmit}"
+					action="#{animalMB.adicionarAnimal}" styleClass="botoes" />
+				<h:commandButton id="cancelar" value="#{msgs.botaoReset}"
+					type="reset" styleClass="botoes" />
+			</h:panelGroup>
+
+
+			<h:messages id="msg" errorClass="errors" />
+		</fieldset>
+	</h:form>
+
+</h:body>
+
+</html>

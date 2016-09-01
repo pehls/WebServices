@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<h:form prependId="true">
+	<p:fieldset legend="CADASTRO DONO" style="margin-bottom:20px">
+		<p:panel id="panel" header="" style="margin-bottom:10px;" >
+			<p:growl id="messages" showDetail="true" />
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="name" value="Nome:" />
+				<p:inputText id="name" required="true" value="#{donoMB.dono.nome}" >
+				<f:validateLength minimum="2" maximum="40"/>
+				</p:inputText>
+
+				<p:outputLabel for="email" value="Email:" />
+				<p:inputText id="email" value="#{donoMB.dono.email}" >
+				<f:validator validatorId="registroValidator" />
+				</p:inputText>
+				
+				<p:outputLabel for="telefone" value="Telefone:" />
+				<p:inputText id="telefone" value="#{donoMB.dono.telefone}" >
+				<f:validateLength minimum="2" maximum="9"/>
+				</p:inputText>
+				
+				<p:outputLabel for="endereco" value="Endereço:" />
+				<p:inputText id="endereco" value="#{donoMB.dono.endereco}" >
+				<f:validateLength minimum="2" maximum="50"/>
+				</p:inputText>
+				
+				<p:outputLabel for="dataNasc" value="Data de Nascimento:" />
+				<p:inputText id="dataNasc" value="#{donoMB.dono.dataNasc}" >
+				<f:convertDateTime pattern="dd-MM-yyyy"/>
+				</p:inputText>
+				
+				<p:outputLabel for="sexo" value="Sexo:" />
+				<p:selectOneRadio id="sexo" value="#{donoMB.dono.sexo}">
+					<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+					<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+					<f:selectItem itemLabel="Outros" itemValue="Outros" />
+				</p:selectOneRadio>
+			</h:panelGrid>
+		</p:panel>
+		<p:commandButton value="Cancelar" />
+		<p:commandButton value="Salvar" action="#{donoMB.saveMessage()}"  update="messages" type="submit"/>
+		</p:fieldset>
+
+	</h:form>
+</h:body>
+</html>
