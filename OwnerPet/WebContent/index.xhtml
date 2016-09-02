@@ -6,24 +6,22 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head></h:head> 
-<body> 
- <h:form>  
-    <p:growl id="messages"/>
+<body background="../img/back.jpg"> 
  
-    <p:menubar>
-        <p:submenu label="Cadastros" icon="ui-icon-document">
-            <p:submenu label="Dono" icon="ui-icon-contact">
-                <p:menuitem value="Cadastro" url="cadastroDono.xhtml" />
-                <p:menuitem value="Listar" url="#" />
-            </p:submenu>
-            <p:separator />
-        </p:submenu>
- 
-        
-        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
- 		
-     
-    </p:menubar>
-</h:form>
+<table>
+	<tr>
+		<td colspan="2"><ui:insert name="topo">
+			<ui:include src="topo.xhtml" />
+		</ui:insert></td>
+	</tr>
+	<tr>
+		<td><ui:insert name="inicio" /> <ui:include src="inicio.xhtml" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><ui:insert name="rodape">
+			<ui:include src="rodape.xhtml" />
+		</ui:insert></td>
+	</tr>
+</table>
 </body> 
 </html>

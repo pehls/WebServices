@@ -1,0 +1,24 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+ <h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="Cadastros" icon="ui-icon-document">
+            <p:submenu label="Dono" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" url="cadastroDono.xhtml" />
+                <p:menuitem value="Listar" url="#" />
+            </p:submenu>
+            <p:separator />
+        </p:submenu>
+ 
+        
+        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+ 		
+     
+    </p:menubar>
+</h:form>
+</ui:fragment>
